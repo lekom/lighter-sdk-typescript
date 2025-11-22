@@ -16,8 +16,18 @@ export class MarketApi {
   constructor(private client: HttpClient) {}
 
   async getCandlesticks(params: CandlesticksRequest): Promise<CandlesticksResponse> {
+    const { interval, start_time, end_time, limit, ...rest } = params;
     return this.client.get<CandlesticksResponse>(`${this.basePath}/candlesticks`, {
-      params,
+      params: {
+        ...rest,
+        // Map interval to resolution for API compatibility
+        resolution: interval,
+        // Map start_time/end_time to start_timestamp/end_timestamp
+        ...(start_time && { start_timestamp: start_time }),
+        ...(end_time && { end_timestamp: end_time }),
+        // Map limit to count_back
+        ...(limit && { count_back: limit }),
+      },
     });
   }
 

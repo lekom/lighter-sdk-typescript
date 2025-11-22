@@ -28,7 +28,10 @@ export class AccountApi {
 
   async getAccount(params: AccountRequest): Promise<AccountResponse> {
     return this.client.get<AccountResponse>(`${this.basePath}/account`, {
-      params,
+      params: {
+        by: 'account_index',
+        ...params,
+      },
     });
   }
 
@@ -55,13 +58,19 @@ export class AccountApi {
     params: AccountMetadataRequest
   ): Promise<AccountMetadataResponse> {
     return this.client.get<AccountMetadataResponse>(`${this.basePath}/accountMetadata`, {
-      params,
+      params: {
+        by: 'account_index',
+        ...params,
+      },
     });
   }
 
   async getPnL(params: PnLRequest): Promise<PnLResponse> {
     return this.client.get<PnLResponse>(`${this.basePath}/pnl`, {
-      params,
+      params: {
+        by: 'account_index',
+        ...params,
+      },
     });
   }
 
@@ -91,7 +100,12 @@ export class AccountApi {
 
   async getPublicPoolsMetadata(): Promise<PublicPoolsMetadataResponse> {
     return this.client.get<PublicPoolsMetadataResponse>(
-      `${this.basePath}/publicPoolsMetadata`
+      `${this.basePath}/publicPoolsMetadata`,
+      {
+        params: {
+          index: '0',
+        },
+      }
     );
   }
 }

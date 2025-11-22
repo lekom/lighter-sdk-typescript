@@ -37,13 +37,19 @@ export class TransactionApi {
 
   async getTransaction(params: TxRequest): Promise<TransactionResponse> {
     return this.client.get<TransactionResponse>(`${this.basePath}/tx`, {
-      params,
+      params: {
+        by: 'tx_hash',
+        ...params,
+      },
     });
   }
 
   async getTransactions(params?: TxsRequest): Promise<TxsResponse> {
     return this.client.get<TxsResponse>(`${this.basePath}/txs`, {
-      params,
+      params: {
+        limit: 10,
+        ...params,
+      },
     });
   }
 
@@ -55,7 +61,10 @@ export class TransactionApi {
 
   async getBlockTransactions(params: BlockTxsRequest): Promise<BlockTxsResponse> {
     return this.client.get<BlockTxsResponse>(`${this.basePath}/blockTxs`, {
-      params,
+      params: {
+        by: 'block_number',
+        ...params,
+      },
     });
   }
 

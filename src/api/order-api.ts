@@ -75,7 +75,10 @@ export class OrderApi {
 
   async getTrades(params?: TradesRequest): Promise<TradesResponse> {
     return this.client.get<TradesResponse>(`${this.basePath}/trades`, {
-      params,
+      params: {
+        sort_by: 'time',
+        ...params,
+      },
     });
   }
 
@@ -86,8 +89,16 @@ export class OrderApi {
   }
 
   async exportData(params: ExportRequest): Promise<ExportResponse> {
+    const defaultParams = {
+      type: 'trades' as const,
+      start_time: Math.floor(Date.now() / 1000) - 86400,
+      end_time: Math.floor(Date.now() / 1000),
+    };
     return this.client.get<ExportResponse>(`${this.basePath}/export`, {
-      params,
+      params: {
+        ...defaultParams,
+        ...params,
+      },
     });
   }
 }
