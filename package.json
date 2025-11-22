@@ -4,6 +4,12 @@
   "description": "Comprehensive TypeScript SDK for the Lighter protocol",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest",
@@ -11,17 +17,30 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lighter/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lighter/sdk/issues"
+  },
+  "homepage": "https://github.com/lighter/sdk#readme",
   "keywords": [
     "lighter",
     "zklighter",
     "defi",
     "trading",
     "sdk",
-    "typescript"
+    "typescript",
+    "ethereum",
+    "zksync",
+    "dex",
+    "perpetuals"
   ],
-  "author": "",
+  "author": "Lighter Team",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.11",

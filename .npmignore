@@ -1,0 +1,31 @@
+# Source files
+src/
+
+# Tests
+**/__tests__/
+**/*.test.ts
+coverage/
+
+# Config files
+.eslintrc.json
+.prettierrc
+jest.config.js
+tsconfig.json
+
+# Examples (optional - remove this if you want to include examples)
+examples/
+
+# Documentation (keep only essential docs)
+PROJECT_STRUCTURE.md
+IMPLEMENTATION_SUMMARY.md
+QUICK_START.md
+
+# Development files
+.claude/
+node_modules/
+.DS_Store
+*.log
+
+# Git
+.git/
+.gitignore
