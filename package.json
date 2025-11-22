@@ -1,6 +1,6 @@
 {
   "name": "lighter-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Comprehensive TypeScript SDK for the Lighter protocol",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lighter/sdk.git"
+    "url": "https://github.com/lekom/lighter-sdk-typescript.git"
   },
   "bugs": {
-    "url": "https://github.com/lighter/sdk/issues"
+    "url": "https://github.com/lekom/lighter-sdk-typescript/issues"
   },
-  "homepage": "https://github.com/lighter/sdk#readme",
+  "homepage": "https://github.com/lekom/lighter-sdk-typescript#readme",
   "keywords": [
     "lighter",
     "zklighter",
